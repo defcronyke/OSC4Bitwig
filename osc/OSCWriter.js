@@ -1,4 +1,4 @@
-// Written by Jürgen Moßgraber - mossgrabers.de
+// Written by JÃ¼rgen MoÃŸgraber - mossgrabers.de
 // (c) 2014-2015
 // Licensed under LGPLv3 - http://www.gnu.org/licenses/lgpl-3.0.txt
 
@@ -344,12 +344,6 @@ OSCWriter.prototype.flushNotes = function (noteAddress, dump)
             OSCWriter.NOTE_STATE_COLOR_OFF;
         this.sendOSCColor (noteAddress + i + '/color', color[0], color[1], color[2], dump);
     }
-};
-
-OSCWriter.prototype.canSelectedTrackHoldNotes = function ()
-{
-    var t = this.model.getTrackBank ().getSelectedTrack ();
-    return t != null && t.canHoldNotes;
 };
 
 OSCWriter.prototype.sendOSC = function (address, value, dump)
