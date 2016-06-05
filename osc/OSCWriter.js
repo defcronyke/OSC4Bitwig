@@ -333,7 +333,7 @@ OSCWriter.prototype.flushFX = function (fxAddress, fxParam, dump)
 
 OSCWriter.prototype.flushNotes = function (noteAddress, dump)
 {
-    var isKeyboardEnabled = this.canSelectedTrackHoldNotes ();
+    var isKeyboardEnabled = this.model.canSelectedTrackHoldNotes ();
     var isRecording = this.model.hasRecordingState ();
     var scales = this.model.getScales();
     for (var i = 0; i < 127; i++)
