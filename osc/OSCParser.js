@@ -936,8 +936,9 @@ OSCParser.prototype.parseBrowser = function (parts, value)
 
         case 'filter':
             var column = parseInt (parts.shift ());
-			if (isNaN (column))
+			if (isNaN (column) || column < 1 || column > 6)
                 return;
+			column = column - 1;
             var session = browser.getActiveSession ();
             if (session == null)
                 return;
