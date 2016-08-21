@@ -1,3 +1,9 @@
+// Written by Jürgen Moßgraber - mossgrabers.de
+// (c) 2014-2016
+// Licensed under LGPLv3 - http://www.gnu.org/licenses/lgpl-3.0.txt
+
+load ("framework/core/AbstractConfig.js");
+
 // ------------------------------
 // Static configurations
 // ------------------------------
@@ -26,7 +32,8 @@ Config.sendHost          = '127.0.0.1';
 Config.sendPort          = 9000;
 Config.accentActive      = false;                       // Accent button active
 Config.fixedAccentValue  = 127;                         // Fixed velocity value for accent
-Config.enableVUMeters    = false;
+
+Config.initListeners (Config.ENABLE_VU_METERS);
 
 
 Config.init = function ()
@@ -84,33 +91,7 @@ Config.init = function ()
     ///////////////////////////
     // Workflow
 
-    Config.enableVUMetersSetting = prefs.getEnumSetting ("VU Meters", "Workflow", [ "Off", "On" ], "Off");
-    Config.enableVUMetersSetting.addValueObserver (function (value)
-    {
-        Config.enableVUMeters = value == "On";
-        Config.notifyListeners (Config.ENABLE_VU_METERS);
-    });
-};
-
-
-// ------------------------------
-// Property listeners
-// ------------------------------
-
-Config.listeners = [];
-for (var i = 0; i <= Config.ENABLE_VU_METERS; i++)
-    Config.listeners[i] = [];
-
-Config.addPropertyListener = function (property, listener)
-{
-    Config.listeners[property].push (listener);
-};
-
-Config.notifyListeners = function (property)
-{
-    var ls = Config.listeners[property];
-    for (var i = 0; i < ls.length; i++)
-        ls[i].call (null);
+    Config.activateEnableVUMetersSetting (prefs);    
 };
 
 Config.setAccentEnabled = function (enabled)
@@ -122,10 +103,3 @@ Config.setAccentValue = function (value)
 {
     Config.accentValueSetting.setRaw (value);
 };
-
-Config.setVUMetersEnabled = function (enabled)
-{
-    Config.enableVUMetersSetting.set (enabled ? "On" : "Off");
-};
-
-function Config () {}
