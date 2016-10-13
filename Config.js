@@ -18,13 +18,13 @@ Config.maxParameterValue = 128;
 // Editable configurations
 // ------------------------------
 
-Config.RECEIVE_HOST          = 0;
-Config.RECEIVE_PORT          = 1;
-Config.SEND_HOST             = 2;
-Config.SEND_PORT             = 3;
-Config.ACTIVATE_FIXED_ACCENT = 4;
-Config.FIXED_ACCENT_VALUE    = 5;
-Config.ENABLE_VU_METERS      = 6;
+Config.RECEIVE_HOST          = 20;
+Config.RECEIVE_PORT          = 21;
+Config.SEND_HOST             = 22;
+Config.SEND_PORT             = 23;
+Config.ACTIVATE_FIXED_ACCENT = 24;
+Config.FIXED_ACCENT_VALUE    = 25;
+Config.ENABLE_VU_METERS      = 26;
 
 Config.receiveHost       = '127.0.0.1';
 Config.receivePort       = 8000;
