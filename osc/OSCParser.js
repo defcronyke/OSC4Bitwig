@@ -1,5 +1,5 @@
 // Written by Jürgen Moßgraber - mossgrabers.de
-// (c) 2014-2015
+// (c) 2014-2017
 // Licensed under LGPLv3 - http://www.gnu.org/licenses/lgpl-3.0.txt
 
 function OSCParser (model, receiveHost, receivePort)
@@ -110,6 +110,10 @@ OSCParser.prototype.parse = function (msg)
             else
                 this.transport.setClick (value != 0);
 			break;
+			
+		case 'quantize':
+		    this.model.clip.quantize (1);
+		    break;
 		
 		case 'tempo':
 			switch (oscParts[0])

@@ -1,5 +1,5 @@
 // Written by Jürgen Moßgraber - mossgrabers.de
-// (c) 2014-2015
+// (c) 2014-2017
 // Licensed under LGPLv3 - http://www.gnu.org/licenses/lgpl-3.0.txt
 
 OSCWriter.TRACK_ATTRIBS = [ "exists", "type", "activated", "selected", "isGroup", "name", "volumeStr", "volume", "panStr", "pan", "color", "vu", "mute", "solo", "recarm", "monitor", "autoMonitor", "canHoldNotes", "sends", "slots", "crossfadeMode" ];

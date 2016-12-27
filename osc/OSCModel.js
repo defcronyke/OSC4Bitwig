@@ -1,5 +1,5 @@
-// Written by Jürgen Moßgraber - mossgrabers.de
-// (c) 2014-2015
+// Written by JÃ¼rgen MoÃŸgraber - mossgrabers.de
+// (c) 2014-2017
 // Licensed under LGPLv3 - http://www.gnu.org/licenses/lgpl-3.0.txt
 
 OSCModel.prototype.keysTranslation = null;
@@ -40,6 +40,8 @@ function OSCModel (scales)
     {
         this.clearPressedKeys ();
     }));
+    
+    this.clip = this.createCursorClip (8, 8);
 }
 OSCModel.prototype = new Model ();
 
