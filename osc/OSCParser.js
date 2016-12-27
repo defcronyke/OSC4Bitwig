@@ -540,7 +540,7 @@ OSCParser.prototype.parseTrackCommands = function (parts, value)
 			var tbOther = this.model.isEffectTrackBankActive () ? this.model.getTrackBank () : this.model.getEffectTrackBank ();
 			var track = tb.getSelectedTrack ();
 			if (track == null)
-				tb.select (0);
+				this.selectTrack (0);
 			// Move the indication to the other bank
             for (var i = 0; i < this.model.numTracks; i++)
             {
@@ -586,7 +586,7 @@ OSCParser.prototype.parseTrackValue = function (trackIndex, parts, value)
             if (trackIndex == -1)
                 this.masterTrack.select ();
             else
-                this.model.getCurrentTrackBank ().select (trackIndex);
+                this.selectTrack (trackIndex);
 			break;
 			
 		case 'volume':
@@ -1254,5 +1254,7 @@ OSCParser.prototype.parseMidi = function (parts, value)
 
 OSCParser.prototype.selectTrack = function (index)
 {
-    this.model.getCurrentTrackBank ().select (index);
+    var tb = this.model.getCurrentTrackBank ();
+    tb.select (index);
+    tb.makeVisible (index);
 };
